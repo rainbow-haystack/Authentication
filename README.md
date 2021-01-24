@@ -1,2 +1,2 @@
-# Authentication
-JWT based authentication
+# MERN Authentication 
+using JSON Web tokens 
