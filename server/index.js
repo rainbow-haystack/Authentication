@@ -1,10 +1,13 @@
 const express = require("express");
 const volleyball = require("volleyball");
+
 require("dotenv").config();
 
+const auth = require("./auth/index.js");
 const app = express();
 
 app.use(volleyball);
+app.use("/auth", auth);
 
 app.get("/", (req, res) => {
   res.status(200).send({
