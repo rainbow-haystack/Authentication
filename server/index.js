@@ -5,8 +5,6 @@ require("dotenv").config();
 const app = express();
 
 app.use(volleyball);
-app.use(notFound);
-app.use(errorHandler);
 
 app.get("/", (req, res) => {
   res.status(200).send({
@@ -28,9 +26,11 @@ function errorHandler(err, req, res, next) {
   });
 }
 
-
+app.use(notFound);
+app.use(errorHandler);
 
 app.listen(process.env.PORT || 3000, () => {
-  console.log(`Starting Express 🖥  at => ${process.env.SERVER_URL}${process.env.PORT}`);
-  // console.log(process.env)
+  console.log(
+    `Starting Express 🖥  at => ${process.env.SERVER_URL}:${process.env.PORT}`
+  );
 });
